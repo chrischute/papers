@@ -30,8 +30,19 @@ Andrej Karpathy: https://twitter.com/karpathy/status/960556555526524928
 
 
 ### Writing good Anki questions
+First, read http://www.supermemo.com/articles/20rules.htm 
 
-Check out http://www.supermemo.com/articles/20rules.htm 
+In general, we aim for 5-12 questions per paper:
+
+- 1 question: who is lead author, what year and what institution?
+- 2-4 questions on the problem the paper is adressing
+- 2-4 questions on the method
+- 1-2 questions on results & findings
+- 1-2 questions on limitations
+- 1-2 questions on community reaction and impact on the field
+
+
+#### 
 
 ### Collaborating on Anki (advanced)
 The .apgk is the standard file format for Anki decks. It is not ideal for collaborating on Anki decks however. 
