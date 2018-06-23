@@ -31,6 +31,7 @@ Andrej Karpathy: https://twitter.com/karpathy/status/960556555526524928
 
 ### Writing good Anki questions
 First, read http://www.supermemo.com/articles/20rules.htm 
+Second, go through resnet-01 deck to see example questions.
 
 In general, we aim for 5-12 questions per paper:
 
