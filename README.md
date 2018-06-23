@@ -15,6 +15,7 @@
 Anki utilizes the testing effect and the spacing effect, which arguably are the two most important (and robust) findings in the science of learning.
 
 Michael Nielsen: https://twitter.com/michael_nielsen/status/957763229454774272 
+
 Andrej Karpathy: https://twitter.com/karpathy/status/960556555526524928 
 
 ### Getting started
