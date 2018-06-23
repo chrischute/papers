@@ -32,7 +32,7 @@ Andrej Karpathy: https://twitter.com/karpathy/status/960556555526524928
 ### Writing good Anki questions
 First, read http://www.supermemo.com/articles/20rules.htm 
 
-In general, we aim for 5-10 questions per paper:
+In general, we aim for 5-12 questions per paper:
 
 - 1 question: who is lead author, what year and what institution?
 - 2-4 questions on the problem the paper is adressing
