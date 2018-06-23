@@ -5,8 +5,8 @@
       - `<arxiv_id>`: Folder for a paper.
         - `<arxiv_id>.pdf`: The paper PDF.
         - `<arxiv_id>.md`: Markdown description of paper with summary notes.
-        - `<arxiv_id>.apkg`: Anki flashcards for the paper exported to .apgk (use this if you're new to Anki)
-        - `anki_collaborative`: alternative to .apgk that let's you contribute to the Anki deck (see Anki Guide)
+        - `<arxiv_id>.apkg`: Anki flashcards for the paper exported to .apgk
+        - `anki_collab`: alternative to .apgk that let's you contribute to the Anki deck (see Anki Guide)
     - `code`: Holds code for re-implementing the paper
 
 ## Anki Guide
@@ -30,3 +30,16 @@ Andrej Karpathy: https://twitter.com/karpathy/status/960556555526524928
 ### Writing good Anki questions
 
 Check out http://www.supermemo.com/articles/20rules.htm 
+
+### Collaborating on Anki (advanced)
+The .apgk is the standard file format for Anki decks. It is not ideal for collaborating on Anki decks however. 
+
+1. Download the CrowdAnki plugin 
+  - In Anki on desktop, click on Tools 
+  - --> Add-ons 
+  - --> Browse and Install 
+  - --> "1788670778"
+
+CrowdAnki on Ankiweb: https://ankiweb.net/shared/info/1788670778
+CrowdAnki on Github: https://github.com/Stvad/CrowdAnki
+
