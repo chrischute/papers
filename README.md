@@ -5,8 +5,8 @@
       - `<arxiv_id>`: Folder for a paper.
         - `<arxiv_id>.pdf`: The paper PDF.
         - `<arxiv_id>.md`: Markdown description of paper with summary notes.
-        - `<arxiv_id>.apkg`: Anki flashcards for the paper exported to .apgk
-        - `anki_collab`: alternative to .apgk that let's you contribute to the Anki deck (see Anki Guide)
+        - `<paper_title>(<year>).apkg`: Anki flashcards for the paper exported to .apgk
+        - `anki_collab-<paper_title>(<year>)`: alternative to .apgk that let's you contribute to the Anki deck (see Anki Guide)
     - `code`: Holds code for re-implementing the paper
 
 ## Anki Guide
