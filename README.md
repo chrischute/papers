@@ -34,10 +34,12 @@ Check out http://www.supermemo.com/articles/20rules.htm
 ### Collaborating on Anki (advanced)
 The .apgk is the standard file format for Anki decks. It is not ideal for collaborating on Anki decks however. 
 
-1. Download the CrowdAnki plugin 
+- Step 1. Download the CrowdAnki plugin 
+
 In Anki on desktop, click on Tools  --> Add-ons  --> Browse and Install --> "1788670778"
 
-CrowdAnki on Ankiweb: https://ankiweb.net/shared/info/1788670778
+- Step 2. Read about plugin
 
+CrowdAnki on Ankiweb: https://ankiweb.net/shared/info/1788670778
 CrowdAnki on Github: https://github.com/Stvad/CrowdAnki
 
