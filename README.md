@@ -15,9 +15,8 @@
 ### Motivation to use Anki
 Anki utilizes the testing effect and the spacing effect, which arguably are the two most important (and robust) findings in the science of learning.
 
-Michael Nielsen: https://twitter.com/michael_nielsen/status/957763229454774272 
-
-Andrej Karpathy: https://twitter.com/karpathy/status/960556555526524928 
+- Michael Nielsen: https://twitter.com/michael_nielsen/status/957763229454774272 
+- Andrej Karpathy: https://twitter.com/karpathy/status/960556555526524928 
 
 ### Getting started
 
@@ -30,8 +29,8 @@ Andrej Karpathy: https://twitter.com/karpathy/status/960556555526524928
 
 
 ### Writing good Anki questions
-First, read http://www.supermemo.com/articles/20rules.htm 
-Second, go through resnet-01 deck to see example questions.
+- First, read http://www.supermemo.com/articles/20rules.htm 
+- Second, go through resnet-01 deck to see example questions.
 
 In general, we aim for 5-12 questions per paper:
 
@@ -54,6 +53,6 @@ In Anki on desktop, click on Tools  --> Add-ons  --> Browse and Install --> "178
 
 #### Step 2. Read about plugin
 
-CrowdAnki on Ankiweb: https://ankiweb.net/shared/info/1788670778
-CrowdAnki on Github: https://github.com/Stvad/CrowdAnki
+- CrowdAnki on Ankiweb: https://ankiweb.net/shared/info/1788670778
+- CrowdAnki on Github: https://github.com/Stvad/CrowdAnki
 
