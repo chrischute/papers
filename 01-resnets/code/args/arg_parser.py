@@ -46,9 +46,10 @@ class ArgParser(object):
         self.parser.add_argument('--save_dir', type=str, default='ckpts/',
                                  help='Directory for saving model checkpoints.')
         self.parser.add_argument('--sgd_momentum', type=float, default=0.9, help='Momentum for SGD.')
+        self.parser.add_argument('--use_pre_activation', action='store_true',
+                                 help='If set, use pre-activation order in residual blocks.')
         self.parser.add_argument('--weight_decay', type=float, default=5e-4,
                                  help='Weight decay (i.e., L2 regularization factor).')
-
 
     def parse_args(self):
         args = self.parser.parse_args()
