@@ -1,9 +1,8 @@
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
+from models.base_resnet import BaseResNet
+from models.layers import ResNeXtBottleneckBlock
 
 
-class ResNeXt(nn.Module):
+class ResNeXt(BaseResNet):
     """ResNeXt for CIFAR10.
 
     Based on the paper:
@@ -11,9 +10,16 @@ class ResNeXt(nn.Module):
     by Saining Xie, Ross Girshick, Piotr Dollár, Zhuowen Tu, Kaiming He
     (https://arxiv.org/abs/1611.05431).
     """
-    def __init__(self):
-        super(ResNeXt, self).__init__()
-        raise NotImplementedError
 
-    def forward(self, x):
-        pass
+    depth2block = {29: ResNeXtBottleneckBlock}
+
+    depth2config = {29: [3, 3, 3]}
+
+    def __init__(self, model_depth, init_channels, num_classes, **kwargs):
+        """
+        Args:
+            model_depth: Depth of the ResNet model.
+            init_channels: Number of channels in the initial residual block.
+            num_classes: Number of classes on the output head.
+        """
+        super(ResNeXt, self).__init__(model_depth, init_channels, num_classes, use_pre_activation=False)

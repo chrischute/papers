@@ -1,12 +1,10 @@
 import torch.nn as nn
 
 
-class ResNetBasicBlock(nn.Module):
-
-    expansion = 1
+class BaseBasicBlock(nn.Module):
 
     def __init__(self, in_channels, num_channels, stride=1, use_pre_activation=False):
-        """ResNet Basic Block. Two 3x3 convolutions with BatchNorm and activation.
+        """Base Basic Block for ResNets. Two 3x3 convolutions with BatchNorm and activation.
 
         Args:
             in_channels: Number of channels in the input.
@@ -14,7 +12,7 @@ class ResNetBasicBlock(nn.Module):
             stride: Stride to use in the first convolutional layer.
             use_pre_activation: If True, use pre-activation ordering. Otherwise use the original formulation.
         """
-        super(ResNetBasicBlock, self).__init__()
+        super(BaseBasicBlock, self).__init__()
 
         self.use_pre_activation = use_pre_activation
         out_channels = self.expansion * num_channels
@@ -26,13 +24,16 @@ class ResNetBasicBlock(nn.Module):
         self.skip_conn = nn.Sequential(*skip_layers)
 
         # No bias in Conv2d because the BatchNorm layer has a bias
-        self.conv1 = nn.Conv2d(in_channels, num_channels, kernel_size=3, stride=stride, padding=1, bias=False)
+        self.conv1 = self._get_conv(in_channels, num_channels, kernel_size=3, stride=stride, padding=1, bias=False)
         self.norm1 = nn.BatchNorm2d(in_channels if use_pre_activation else num_channels)
         self.relu1 = nn.ReLU(inplace=True)
 
-        self.conv2 = nn.Conv2d(num_channels, out_channels, kernel_size=3, padding=1, bias=False)
+        self.conv2 = self._get_conv(num_channels, out_channels, kernel_size=3, padding=1, bias=False)
         self.norm2 = nn.BatchNorm2d(num_channels if use_pre_activation else out_channels)
         self.relu2 = nn.ReLU(inplace=True)
+
+    def _get_conv(self, in_channels, out_channels, kernel_size, stride=1, padding=0, bias=True):
+        raise NotImplementedError('Subclass of BaseBasicBlock must implement _get_conv.')
 
     def forward(self, x):
 
