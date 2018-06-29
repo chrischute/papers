@@ -6,8 +6,9 @@ Example code re-implementing a few ResNet-style models.
 
 ### Creating Conda environment
   1. Make sure you have [Anaconda or Miniconda](https://conda.io/docs/download.html)
-  2. Download repo and `cd` into it. Run `conda create --name res --file requirements.txt`.
-  3. (Optional) Add interpreter to PyCharm
+  2. Download repo and `cd` into it. Run `conda env create --file=environment.yml`.
+  3. Add CUDA to the environment if you have a GPU.
+  4. (Optional) Add interpreter to PyCharm
     - Go to `Preferences > Project > Project Interpreter`
     - Click the gear icon, then 'Add'
     - Select 'Conda Environment' and 'Existing Environment'
@@ -34,15 +35,12 @@ Example code re-implementing a few ResNet-style models.
 + data_loader: Wraps CIFAR data loader
 + logger: Logs training info to the console and TensorBoard
 + models: Example code for ResNet-style models to train on CIFAR-10
-
   - resnet.py: Original ResNet
   - densenet.py: DenseNet
   - resnext.py: ResNeXt
   - se_resnext.py: ResNeXt with Squeeze-and-Excitation blocks
 + saver: Saves and loads model checkpoints
 + scripts:
-
-
-- train.py: Train model
-- test.py: Test model
+  - train.py: Train model
+  - test.py: Test model
 ```
