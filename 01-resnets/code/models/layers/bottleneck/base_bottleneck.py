@@ -1,7 +1,7 @@
 import torch.nn as nn
 
 
-class BaseBottleneckBlock(nn.Module):
+class BaseBottleneck(nn.Module):
 
     def __init__(self, in_channels, num_channels, stride=1, use_pre_activation=False):
         """Base Bottleneck Block for a ResNet.
@@ -14,7 +14,7 @@ class BaseBottleneckBlock(nn.Module):
             stride: Stride to use in the second convolutional layer.
             use_pre_activation: If True, use pre-activation ordering. Otherwise use the original formulation.
         """
-        super(BaseBottleneckBlock, self).__init__()
+        super(BaseBottleneck, self).__init__()
 
         self.use_pre_activation = use_pre_activation
         out_channels = self.expansion * num_channels

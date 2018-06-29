@@ -1,7 +1,7 @@
 import torch.nn as nn
 
 from models.base_resnet import BaseResNet
-from models.layers import ResNetBasicBlock, ResNetBottleneckBlock
+from models.layers import ResNetBasic, ResNetBottleneck
 
 
 class ResNet(BaseResNet):
@@ -13,11 +13,11 @@ class ResNet(BaseResNet):
     (https://arxiv.org/abs/1512.03385).
     """
 
-    depth2block = {18: ResNetBasicBlock,
-                   34: ResNetBasicBlock,
-                   50: ResNetBottleneckBlock,
-                   101: ResNetBottleneckBlock,
-                   152: ResNetBottleneckBlock}
+    depth2block = {18: ResNetBasic,
+                   34: ResNetBasic,
+                   50: ResNetBottleneck,
+                   101: ResNetBottleneck,
+                   152: ResNetBottleneck}
 
     depth2config = {18: [2, 2, 2, 2],
                     34: [3, 4, 6, 3],

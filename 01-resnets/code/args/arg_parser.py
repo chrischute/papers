@@ -51,7 +51,6 @@ class ArgParser(object):
         self.parser.add_argument('--weight_decay', type=float, default=5e-4,
                                  help='Weight decay (i.e., L2 regularization factor).')
 
-
     def parse_args(self):
         args = self.parser.parse_args()
 

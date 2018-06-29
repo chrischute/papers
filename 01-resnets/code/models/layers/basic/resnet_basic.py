@@ -1,9 +1,9 @@
 import torch.nn as nn
 
-from .base_basic_block import BaseBasicBlock
+from .base_basic import BaseBasic
 
 
-class ResNetBasicBlock(BaseBasicBlock):
+class ResNetBasic(BaseBasic):
 
     expansion = 1
 
@@ -16,7 +16,7 @@ class ResNetBasicBlock(BaseBasicBlock):
             stride: Stride to use in the first convolutional layer.
             use_pre_activation: If True, use pre-activation ordering. Otherwise use the original formulation.
         """
-        super(ResNetBasicBlock, self).__init__(in_channels, num_channels, stride, use_pre_activation)
+        super(ResNetBasic, self).__init__(in_channels, num_channels, stride, use_pre_activation)
 
     def _get_conv(self, in_channels, out_channels, kernel_size, stride=1, padding=0, bias=True):
         """Vanilla convolution for a vanilla ResNet.

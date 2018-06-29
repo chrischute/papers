@@ -1,6 +1,6 @@
 from models.base_resnet import BaseResNet
 
-from models.layers import SEResNeXtBottleneckBlock
+from models.layers import SEResNeXtBottleneck
 
 
 class SEResNeXt(BaseResNet):
@@ -11,7 +11,7 @@ class SEResNeXt(BaseResNet):
     by Jie Hu, Li Shen, Gang Sun
     (https://arxiv.org/abs/1709.01507).
     """
-    depth2block = {29: SEResNeXtBottleneckBlock}
+    depth2block = {29: SEResNeXtBottleneck}
 
     depth2config = {29: [3, 3, 3]}
 

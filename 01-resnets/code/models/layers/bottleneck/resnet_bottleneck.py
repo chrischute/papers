@@ -1,9 +1,9 @@
 import torch.nn as nn
 
-from models.layers.bottleneck.base_bottleneck_block import BaseBottleneckBlock
+from models.layers.bottleneck.base_bottleneck import BaseBottleneck
 
 
-class ResNetBottleneckBlock(BaseBottleneckBlock):
+class ResNetBottleneck(BaseBottleneck):
 
     expansion = 4
 
@@ -16,7 +16,7 @@ class ResNetBottleneckBlock(BaseBottleneckBlock):
             stride: Stride to use in the second convolutional layer.
             use_pre_activation: If True, use pre-activation ordering. Otherwise use the original formulation.
         """
-        super(ResNetBottleneckBlock, self).__init__(in_channels, num_channels, stride, use_pre_activation)
+        super(ResNetBottleneck, self).__init__(in_channels, num_channels, stride, use_pre_activation)
 
     def _get_conv(self, in_channels, out_channels, kernel_size, stride=1, padding=0, bias=True):
         """Vanilla convolution for a vanilla ResNet.

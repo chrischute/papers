@@ -1,3 +1,4 @@
-from .resnet_bottleneck_block import ResNetBottleneckBlock
-from .resnext_bottleneck_block import ResNeXtBottleneckBlock
-from .se_resnext_bottleneck_block import SEResNeXtBottleneckBlock
+from .densenet_bottleneck import DenseNetBottleneck
+from .resnet_bottleneck import ResNetBottleneck
+from .resnext_bottleneck import ResNeXtBottleneck
+from .se_resnext_bottleneck import SEResNeXtBottleneck

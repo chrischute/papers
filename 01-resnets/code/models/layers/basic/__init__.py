@@ -1,1 +1,1 @@
-from .resnet_basic_block import ResNetBasicBlock
+from .resnet_basic import ResNetBasic

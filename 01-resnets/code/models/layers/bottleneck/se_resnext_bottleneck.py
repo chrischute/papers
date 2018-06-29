@@ -1,10 +1,10 @@
 import torch.nn as nn
 
-from .base_bottleneck_block import BaseBottleneckBlock
+from .base_bottleneck import BaseBottleneck
 from models.layers import SEBlock
 
 
-class SEResNeXtBottleneckBlock(BaseBottleneckBlock):
+class SEResNeXtBottleneck(BaseBottleneck):
 
     expansion = 2
 
@@ -19,7 +19,7 @@ class SEResNeXtBottleneckBlock(BaseBottleneckBlock):
             cardinality: Number of transformations to aggregate.
         """
         self.cardinality = cardinality
-        super(SEResNeXtBottleneckBlock, self).__init__(in_channels, num_channels, stride, use_pre_activation)
+        super(SEResNeXtBottleneck, self).__init__(in_channels, num_channels, stride, use_pre_activation)
 
         self.se_block = SEBlock(num_channels)
 

@@ -1,5 +1,5 @@
 from models.base_resnet import BaseResNet
-from models.layers import ResNeXtBottleneckBlock
+from models.layers import ResNeXtBottleneck
 
 
 class ResNeXt(BaseResNet):
@@ -11,7 +11,7 @@ class ResNeXt(BaseResNet):
     (https://arxiv.org/abs/1611.05431).
     """
 
-    depth2block = {29: ResNeXtBottleneckBlock}
+    depth2block = {29: ResNeXtBottleneck}
 
     depth2config = {29: [3, 3, 3]}
 

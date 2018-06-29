@@ -1,9 +1,9 @@
 import torch.nn as nn
 
-from .base_bottleneck_block import BaseBottleneckBlock
+from .base_bottleneck import BaseBottleneck
 
 
-class ResNeXtBottleneckBlock(BaseBottleneckBlock):
+class ResNeXtBottleneck(BaseBottleneck):
 
     expansion = 2
 
@@ -18,7 +18,7 @@ class ResNeXtBottleneckBlock(BaseBottleneckBlock):
             cardinality: Number of transformations to aggregate.
         """
         self.cardinality = cardinality
-        super(ResNeXtBottleneckBlock, self).__init__(in_channels, num_channels, stride, use_pre_activation)
+        super(ResNeXtBottleneck, self).__init__(in_channels, num_channels, stride, use_pre_activation)
 
     def _get_conv(self, in_channels, out_channels, kernel_size, stride=1, padding=0, bias=True):
         """Aggregated convolution for ResNeXt."""
