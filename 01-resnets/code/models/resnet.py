@@ -11,6 +11,7 @@ class ResNet(nn.Module):
     by Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
     (https://arxiv.org/abs/1512.03385).
     """
+
     depth2block = {18: ResNetBasicBlock,
                    34: ResNetBasicBlock,
                    50: ResNetBottleneckBlock,
@@ -23,16 +24,19 @@ class ResNet(nn.Module):
                     101: [3, 4, 23, 3],
                     152: [3, 8, 36, 3]}
 
-    def __init__(self, model_depth, init_channels, num_classes):
+    def __init__(self, model_depth, init_channels, num_classes, use_pre_activation=True, **kwargs):
         """
+
         Args:
             model_depth: Depth of the ResNet model.
             init_channels: Number of channels in the initial residual block.
             num_classes: Number of classes on the output head.
+            use_pre_activation: If true, use pre-activation order in the residual blocks.
         """
         super(ResNet, self).__init__()
 
         self.in_channels = init_channels
+        self.use_pre_activation = use_pre_activation
 
         try:
             block_fn = self.depth2block[model_depth]
@@ -67,12 +71,13 @@ class ResNet(nn.Module):
         Returns:
             Callable layer of residual blocks.
         """
-        res_blocks = [block_fn(self.in_channels, num_channels, stride=stride)]
+        res_blocks = [block_fn(self.in_channels, num_channels, stride, self.use_pre_activation)]
         self.in_channels = num_channels * block_fn.expansion
-        res_blocks += [block_fn(self.in_channels, num_channels) for _ in range(num_blocks - 1)]
-        res_blocks = nn.Sequential(*res_blocks)
+        res_blocks += [block_fn(self.in_channels, num_channels, use_pre_activation=self.use_pre_activation)
+                       for _ in range(num_blocks - 1)]
+        res_layer = nn.Sequential(*res_blocks)
 
-        return res_blocks
+        return res_layer
 
     def forward(self, x):
         x = self.in_conv(x)
