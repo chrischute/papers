@@ -1,0 +1,20 @@
+name: norm
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - jupyter=1.0.0
+  - matplotlib=2.2.2
+  - numpy=1.14.5
+  - pandas=0.23.0
+  - pillow=5.1.0
+  - pip=10.0.1
+  - pydicom=1.0.2
+  - python=3.6.5
+  - pytorch=0.4.0
+  - tqdm=4.23.4
+  - tensorboardx=1.2
+  - tensorboard=1.8.0
+  - tensorflow=1.8.0
+  - torchvision=0.2.1
