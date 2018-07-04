@@ -1,4 +1,4 @@
-## Batch Normalization
+## 1. Batch Normalization
   - **Title:** Batch Normalization: Accelerating Deep Network Training by Reducing
   Internal Covariate Shift
   - **Authors:** Sergey Ioffe, Christian Szegedy
@@ -6,7 +6,7 @@
   - **Link:** http://arxiv.org/abs/1502.03167v3
   - **Abstract:** Training Deep Neural Networks is complicated by the fact that the distribution of each layer's inputs changes during training, as the parameters of the previous layers change. This slows down the training by requiring lower learning rates and careful parameter initialization, and makes it notoriously hard to train models with saturating nonlinearities. We refer to this phenomenon as internal covariate shift, and address the problem by normalizing layer inputs. Our method draws its strength from making normalization a part of the model architecture and performing the normalization for each training mini-batch. Batch Normalization allows us to use much higher learning rates and be less careful about initialization. It also acts as a regularizer, in some cases eliminating the need for Dropout. Applied to a state-of-the-art image classification model, Batch Normalization achieves the same accuracy with 14 times fewer training steps, and beats the original model by a significant margin. Using an ensemble of batch-normalized networks, we improve upon the best published result on ImageNet classification: reaching 4.9% top-5 validation error (and 4.8% test error), exceeding the accuracy of human raters.
 
-## Weight Normalization
+## 2. Weight Normalization
   - **Title:** Weight Normalization: A Simple Reparameterization to Accelerate Training
   of Deep Neural Networks
   - **Authors:** Tim Salimans, Diederik P. Kingma
@@ -14,21 +14,21 @@
   - **Link:** http://arxiv.org/abs/1602.07868v3
   - **Abstract:** We present weight normalization: a reparameterization of the weight vectors in a neural network that decouples the length of those weight vectors from their direction. By reparameterizing the weights in this way we improve the conditioning of the optimization problem and we speed up convergence of stochastic gradient descent. Our reparameterization is inspired by batch normalization but does not introduce any dependencies between the examples in a minibatch. This means that our method can also be applied successfully to recurrent models such as LSTMs and to noise-sensitive applications such as deep reinforcement learning or generative models, for which batch normalization is less well suited. Although our method is much simpler, it still provides much of the speed-up of full batch normalization. In addition, the computational overhead of our method is lower, permitting more optimization steps to be taken in the same amount of time. We demonstrate the usefulness of our method on applications in supervised image recognition, generative modelling, and deep reinforcement learning.
 
-## Layer Normalization
+## 3. Layer Normalization
   - **Title:** Layer Normalization
   - **Authors:** Jimmy Lei Ba, Jamie Ryan Kiros, Geoffrey E. Hinton
   - **Year:** 2016
   - **Link:** http://arxiv.org/abs/1607.06450v1
   - **Abstract:** Training state-of-the-art, deep neural networks is computationally expensive. One way to reduce the training time is to normalize the activities of the neurons. A recently introduced technique called batch normalization uses the distribution of the summed input to a neuron over a mini-batch of training cases to compute a mean and variance which are then used to normalize the summed input to that neuron on each training case. This significantly reduces the training time in feed-forward neural networks. However, the effect of batch normalization is dependent on the mini-batch size and it is not obvious how to apply it to recurrent neural networks. In this paper, we transpose batch normalization into layer normalization by computing the mean and variance used for normalization from all of the summed inputs to the neurons in a layer on a single training case. Like batch normalization, we also give each neuron its own adaptive bias and gain which are applied after the normalization but before the non-linearity. Unlike batch normalization, layer normalization performs exactly the same computation at training and test times. It is also straightforward to apply to recurrent neural networks by computing the normalization statistics separately at each time step. Layer normalization is very effective at stabilizing the hidden state dynamics in recurrent networks. Empirically, we show that layer normalization can substantially reduce the training time compared with previously published techniques.
 
-## Instance Normalization
+## 4. Instance Normalization
   - **Title:** Instance Normalization: The Missing Ingredient for Fast Stylization
   - **Authors:** Dmitry Ulyanov, Andrea Vedaldi, Victor Lempitsky
   - **Year:** 2017
   - **Link:** http://arxiv.org/abs/1607.08022v3
   - **Abstract:** It this paper we revisit the fast stylization method introduced in Ulyanov et. al. (2016). We show how a small change in the stylization architecture results in a significant qualitative improvement in the generated images. The change is limited to swapping batch normalization with instance normalization, and to apply the latter both at training and testing times. The resulting method can be used to train high-performance architectures for real-time image generation. The code will is made available on github at https://github.com/DmitryUlyanov/texture_nets. Full paper can be found at arXiv:1701.02096.
 
-## Group Normalization
+## 5. Group Normalization
   - **Title:** Group Normalization
   - **Authors:** Yuxin Wu, Kaiming He
   - **Year:** 2018
