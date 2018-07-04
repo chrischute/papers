@@ -64,12 +64,6 @@ class BaseArgParser(object):
         args.resize_shape = util.args_to_list(args.resize_shape, allow_empty=False, arg_type=int, allow_negative=False)
         args.crop_shape = util.args_to_list(args.crop_shape, allow_empty=False, arg_type=int, allow_negative=False)
 
-        # Set up model depth
-        if (args.model_depth - 4) % 3 != 0:
-            raise ValueError('Invalid model_depth: {}.'.format(args.model_depth))
-        # TODO: Check this block config setup
-        args.block_config = [(args.model_depth - 4) // 6 for _ in range(3)]
-
         # Set up available GPUs
         args.gpu_ids = util.args_to_list(args.gpu_ids, allow_empty=True, arg_type=int, allow_negative=False)
         if len(args.gpu_ids) > 0 and torch.cuda.is_available():
