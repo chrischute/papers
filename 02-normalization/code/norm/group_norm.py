@@ -78,7 +78,8 @@ class GroupNorm(nn.Module):
     def _get_group_idxs(num_channels, num_groups):
         assert num_channels % num_groups == 0, 'Number of channels must be divisible by number of groups.'
         num_channels_per_group = num_channels // num_groups
-        group_idxs = nn.ModuleList([torch.arange(i, i + num_channels_per_group, dtype=torch.int64, requires_grad=False)
-                                    for i in range(0, num_channels, num_channels_per_group)])
+        group_idxs = [nn.Parameter(torch.arange(i, i + num_channels_per_group, dtype=torch.int64), requires_grad=False)
+                      for i in range(0, num_channels, num_channels_per_group)]
+        group_idxs = nn.ParameterList(*group_idxs)
 
         return group_idxs
