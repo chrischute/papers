@@ -23,7 +23,7 @@ def train(args):
     model.train()
 
     # Get optimizer and scheduler
-    optimizer = optim.get_optimizer(model.parameters(), args)
+    optimizer = optim.get_optimizer(filter(lambda p: p.requires_grad, model.parameters()), args)
     lr_scheduler = optim.get_scheduler(optimizer, args)
     if args.ckpt_path:
         ModelSaver.load_optimizer(args.ckpt_path, optimizer, lr_scheduler)

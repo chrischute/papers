@@ -35,6 +35,8 @@ class BaseArgParser(object):
                                  help='Directory in which to save model checkpoints.')
         self.parser.add_argument('--dataset', type=str, default='CIFAR-10', choices=('CIFAR-10',),
                                  help='Dataset to use.')
+        self.parser.add_argument('--use_custom_gn', type=util.str_to_bool, default=False,
+                                 help='If true, use custom GroupNorm implementation.')
         self.is_training = None
 
     def parse_args(self):

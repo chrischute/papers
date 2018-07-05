@@ -6,12 +6,12 @@ import torch.nn.functional as F
 class BasicBlock(nn.Module):
     expansion = 1
 
-    def __init__(self, in_planes, planes, stride=1):
+    def __init__(self, in_planes, planes, stride=1, use_custom_gn=False):
         super(BasicBlock, self).__init__()
         self.conv1 = nn.Conv2d(in_planes, planes, kernel_size=3, stride=stride, padding=1, bias=False)
-        self.norm1 = norm.GroupNorm(planes // 16, planes, use_custom=True)
+        self.norm1 = norm.GroupNorm(planes // 16, planes, use_custom=use_custom_gn)
         self.conv2 = nn.Conv2d(planes, planes, kernel_size=3, stride=1, padding=1, bias=False)
-        self.norm2 = norm.GroupNorm(planes // 16, planes, use_custom=True)
+        self.norm2 = norm.GroupNorm(planes // 16, planes, use_custom=use_custom_gn)
 
         self.shortcut = nn.Sequential()
         if stride != 1 or in_planes != self.expansion*planes:
@@ -31,12 +31,12 @@ class BasicBlock(nn.Module):
 class Bottleneck(nn.Module):
     expansion = 4
 
-    def __init__(self, in_planes, planes, stride=1):
+    def __init__(self, in_planes, planes, stride=1, use_custom_gn=False):
         super(Bottleneck, self).__init__()
         self.conv1 = nn.Conv2d(in_planes, planes, kernel_size=1, bias=False)
-        self.norm1 = norm.GroupNorm(planes // 16, planes, use_custom=True)
+        self.norm1 = norm.GroupNorm(planes // 16, planes, use_custom=use_custom_gn)
         self.conv2 = nn.Conv2d(planes, planes, kernel_size=3, stride=stride, padding=1, bias=False)
-        self.norm2 = norm.GroupNorm(planes // 16, planes, use_custom=True)
+        self.norm2 = norm.GroupNorm(planes // 16, planes, use_custom=use_custom_gn)
         self.conv3 = nn.Conv2d(planes, self.expansion*planes, kernel_size=1, bias=False)
         self.norm3 = norm.GroupNorm(self.expansion*planes // 16, self.expansion*planes, use_custom=True)
 
@@ -57,7 +57,7 @@ class Bottleneck(nn.Module):
 
 
 class ResNet(nn.Module):
-    def __init__(self, model_depth, num_classes=10, **kwargs):
+    def __init__(self, model_depth, num_classes=10, use_custom_gn=False, **kwargs):
         super(ResNet, self).__init__()
 
         self.model_depth = model_depth
@@ -74,18 +74,18 @@ class ResNet(nn.Module):
         block, num_blocks = block_config[model_depth]
 
         self.conv1 = nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1, bias=False)
-        self.norm1 = norm.GroupNorm(4, 64, use_custom=True)
-        self.layer1 = self._make_layer(block, 64, num_blocks[0], stride=1)
-        self.layer2 = self._make_layer(block, 128, num_blocks[1], stride=2)
-        self.layer3 = self._make_layer(block, 256, num_blocks[2], stride=2)
-        self.layer4 = self._make_layer(block, 512, num_blocks[3], stride=2)
+        self.norm1 = norm.GroupNorm(4, 64, use_custom=use_custom_gn)
+        self.layer1 = self._make_layer(block, 64, num_blocks[0], stride=1, use_custom_gn=use_custom_gn)
+        self.layer2 = self._make_layer(block, 128, num_blocks[1], stride=2, use_custom_gn=use_custom_gn)
+        self.layer3 = self._make_layer(block, 256, num_blocks[2], stride=2, use_custom_gn=use_custom_gn)
+        self.layer4 = self._make_layer(block, 512, num_blocks[3], stride=2, use_custom_gn=use_custom_gn)
         self.linear = nn.Linear(512*block.expansion, num_classes)
 
-    def _make_layer(self, block, planes, num_blocks, stride):
+    def _make_layer(self, block, planes, num_blocks, stride, use_custom_gn=False):
         strides = [stride] + [1]*(num_blocks-1)
         layers = []
         for stride in strides:
-            layers.append(block(self.in_planes, planes, stride))
+            layers.append(block(self.in_planes, planes, stride, use_custom_gn))
             self.in_planes = planes * block.expansion
         return nn.Sequential(*layers)
 
