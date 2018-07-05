@@ -32,8 +32,7 @@ def train(args):
     loss_fn = nn.CrossEntropyLoss()
     train_loader = CIFARLoader('train', args.batch_size, args.num_workers)
     logger = TrainLogger(args, len(train_loader.dataset))
-    eval_loaders = [CIFARLoader('train', args.batch_size, args.num_workers),
-                    CIFARLoader('val', args.batch_size, args.num_workers)]
+    eval_loaders = [CIFARLoader('val', args.batch_size, args.num_workers)]
     evaluator = ModelEvaluator(eval_loaders, logger, args.max_eval, args.epochs_per_eval)
     saver = ModelSaver(**vars(args))
 
