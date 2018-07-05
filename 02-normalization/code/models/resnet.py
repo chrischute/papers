@@ -17,7 +17,7 @@ class BasicBlock(nn.Module):
         if stride != 1 or in_planes != self.expansion*planes:
             self.shortcut = nn.Sequential(
                 nn.Conv2d(in_planes, self.expansion*planes, kernel_size=1, stride=stride, bias=False),
-                norm.GroupNorm(self.expansion*planes // 16, self.expansion*planes, use_custom=True)
+                norm.GroupNorm(self.expansion*planes // 16, self.expansion*planes, use_custom=use_custom_gn)
             )
 
     def forward(self, x):
@@ -38,13 +38,13 @@ class Bottleneck(nn.Module):
         self.conv2 = nn.Conv2d(planes, planes, kernel_size=3, stride=stride, padding=1, bias=False)
         self.norm2 = norm.GroupNorm(planes // 16, planes, use_custom=use_custom_gn)
         self.conv3 = nn.Conv2d(planes, self.expansion*planes, kernel_size=1, bias=False)
-        self.norm3 = norm.GroupNorm(self.expansion*planes // 16, self.expansion*planes, use_custom=True)
+        self.norm3 = norm.GroupNorm(self.expansion*planes // 16, self.expansion*planes, use_custom=use_custom_gn)
 
         self.shortcut = nn.Sequential()
         if stride != 1 or in_planes != self.expansion*planes:
             self.shortcut = nn.Sequential(
                 nn.Conv2d(in_planes, self.expansion*planes, kernel_size=1, stride=stride, bias=False),
-                norm.GroupNorm(self.expansion*planes // 16, self.expansion*planes, use_custom=True)
+                norm.GroupNorm(self.expansion*planes // 16, self.expansion*planes, use_custom=use_custom_gn)
             )
 
     def forward(self, x):
