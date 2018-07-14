@@ -2,4 +2,5 @@
 .idea/
 data/
 downloads/
+__pycache__/
 *.pptx
