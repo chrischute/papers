@@ -4,4 +4,3 @@ https://arxiv.org/abs/1411.1792
 https://arxiv.org/abs/1611.03530
 https://arxiv.org/abs/1706.05137
 https://arxiv.org/abs/1804.08328
-http://www.jmlr.org/papers/volume11/erhan10a/erhan10a.pdf
