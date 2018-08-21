@@ -36,33 +36,19 @@
   - **Link:** https://www.nature.com/articles/s41598-017-17876-z
   - **Abstract:** Deep learning (DL) has revolutionized the field of computer vision and image processing. In medical imaging, algorithmic solutions based on DL have been shown to achieve high performance on tasks that previously required medical experts. However, DL-based solutions for disease detection have been proposed without methods to quantify and control their uncertainty in a decision. In contrast, a physician knows whether she is uncertain about a case and will consult more experienced colleagues if needed. Here we evaluate drop-out based Bayesian uncertainty measures for DL in diagnosing diabetic retinopathy (DR) from fundus images and show that it captures uncertainty better than straightforward alternatives. Furthermore, we show that uncertainty informed decision referral can improve diagnostic performance. Experiments across different networks, tasks and datasets show robust generalization. Depending on network capacity and task/dataset difficulty, we surpass 85% sensitivity and 80% specificity as recommended by the NHS when referring 0−20% of the most uncertain decisions for further inspection. We analyse causes of uncertainty by relating intuitions from 2D visualizations to the high-dimensional image space. While uncertainty is sensitive to clinically relevant cases, sensitivity to unfamiliar data samples is task dependent, but can be rendered more robust.
 
-## (Extra) Knowing What We Don't Know (Gal Thesis, Ch. 1)
-  - **Title:** The Importance of Knowing What We Don't Know (Thesis Chapter 1)
+## (Extra) Probabilistic U-Net
+  - **Title:** A Probabilistic U-Net for Segmentation of Ambiguous Images
+  - **Authors:** Simon A. A. Kohl, Bernardino Romera-Paredes, Clemens Meyer, Jeffrey De Fauw, Joseph R. Ledsam, Klaus H. Maier-Hein, S. M. Ali Eslami, Danilo Jimenez Rezende, Olaf Ronneberger
+  - **Year:** 2018
+  - **Link:** http://arxiv.org/abs/1806.05034v1
+  - **Abstract:** Many real-world vision problems suffer from inherent ambiguities. In clinical applications for example, it might not be clear from a CT scan alone which particular region is cancer tissue. Therefore a group of graders typically produces a set of diverse but plausible segmentations. We consider the task of learning a distribution over segmentations given an input. To this end we propose a generative segmentation model based on a combination of a U-Net with a conditional variational autoencoder that is capable of efficiently producing an unlimited number of plausible hypotheses. We show on a lung abnormalities segmentation task and on a Cityscapes segmentation task that our model reproduces the possible segmentation variants as well as the frequencies with which they occur, doing so significantly better than published approaches. These models could have a high impact in real-world applications, such as being used as clinical decision-making algorithms accounting for multiple plausible semantic segmentation hypotheses to provide possible diagnoses and recommend further actions to resolve the present ambiguities.
+
+## (Extra) Knowing What We Don't Know (Gal Thesis, Ch. 1-3, 5)
+  - **Title:** The Importance of Knowing What We Don't Know
   - **Authors:** Yarin Gal
   - **Year:** 2016
-  - **Link:** http://mlg.eng.cam.ac.uk/yarin/thesis/1_introduction.pdf
+  - **Link:** http://mlg.eng.cam.ac.uk/yarin/blog_2248.html
   - **Intro Paragraph:** In the Bayesian machine learning community we work with probabilistic models and uncertainty. Models such as Gaussian processes, which define probability distributions over functions, are used to learn the more likely and less likely ways to generalise from observed data. This probabilistic view of machine learning offers confidence bounds for data analysis and decision making, information that a biologist for example would rely on to analyse her data, or an autonomous car would use to decide whether to brake or not. In analysing data or making decisions, it is often necessary to be able to tell whether a model is certain about its output, being able to ask "maybe I need to use more diverse data? or change the model? or perhaps be careful when making a decision?". Such questions are of fundamental concern in Bayesian machine learning, and have been studied extensively in the field [Ghahramani, 2015]. When using deep learning models on the other hand [Goodfellow et al., 2016], we generally only have point estimates of parameters and predictions at hand. The use of such models forces us to sacrifice our tools for answering the questions above, potentially leading to situations where we can't tell whether a model is making sensible predictions or just guessing at random.
-
-## (Extra) The Language of Uncertainty (Gal Thesis, Ch. 2)
-  - **Title:** The Language of Uncertainty (Chapter 2 of Thesis)
-  - **Authors:** Yarin Gal
-  - **Year:** 2016
-  - **Link:** http://mlg.eng.cam.ac.uk/yarin/thesis/2_language_of_uncertainty.pdf
-  - **Intro Paragraph:** To formalise our discussion of model uncertainty we will rely on probabilistic modelling, and more specifically on Bayesian modelling. Bayesian probability theory offers us the machinery we need to develop our tools. Together with techniques for approximate inference in Bayesian models, in the next chapter we will present the main results of this work. But prior to that, let us review the main ideas underlying Bayesian modelling, approximate inference, and a model of key importance to us: the Bayesian neural network.
-
-## (Extra) Bayesian Deep Learning (Gal Thesis, Ch. 3)
-  - **Title:** Bayesian Deep Learning (Chapter 3 of Thesis)
-  - **Authors:** Yarin Gal
-  - **Year:** 2016
-  - **Link:** http://mlg.eng.cam.ac.uk/yarin/thesis/3_bayesian_deep_learning.pdf
-  - **Intro Paragraph:** In previous chapters we reviewed Bayesian neural networks (BNNs) and historical techniques for approximate inference in these, as well as more recent approaches. We discussed the advantages and disadvantages of different techniques, examining their practicality. This, perhaps, is the most important aspect of modern techniques for approximate inference in BNNs. The field of deep learning is pushed forward by practitioners, working on real-world problems. Techniques which cannot scale to complex models with potentially millions of parameters, scale well with large amounts of data, need well studied models to be radically changed, or are not accessible to engineers, will simply perish. In this chapter we will develop on the strand of work of [Graves, 2011; Hinton and Van Camp, 1993], but will do so from the Bayesian perspective rather than the information theory one. Developing Bayesian approaches to deep learning, we will tie approximate BNN inference together with deep learning stochastic regularisation techniques (SRTs) such as dropout. These regularisation techniques are used in many modern deep learning tools, allowing us to offer a practical inference technique.
-
-## (Extra) Applications of Bayesian Deep Learning (Gal Thesis, Ch. 5)
-  - **Title:** Applications (Chapter 5 of Thesis)
-  - **Authors:** Yarin Gal
-  - **Year:** 2016
-  - **Link:** http://mlg.eng.cam.ac.uk/yarin/thesis/5_applications.pdf
-  - **Intro Paragraph:** In previous chapters we linked stochastic regularisation techniques (SRTs) to approximate inference in Bayesian neural networks (NNs), and studied the resulting model uncertainty for popular SRTs such as dropout. We have yet to give any real-world applications stemming from this link though, leaving it somewhat in the realms of "theoretical work". But a theory is worth very little if we can’t use it to obtain new tools, or shed light on existing ones. In this chapter we will survey recent literature making use of the tools developed in the previous chapters in fields ranging from language processing to computer vision to biomedical domains. This is followed by more use cases I have worked on recently with the help of others. We will see how model uncertainty can be used to choose what data to learn from (joint work with Riashat Islam as part of his Master’s project). Switching to applications in deep reinforcement learning, we will see how model uncertainty can help exploration. This is then followed by the development of a data efficient framework in deep reinforcement learning (joint work with Rowan McAllister and Carl Rasmussen). A study of the implications of this work on our understanding of existing tools will be given in the next chapter.
 
 ## (Extra) Uncertainty for Segmentation
   - **Title:** Leveraging Uncertainty Estimates for Predicting Segmentation Quality
