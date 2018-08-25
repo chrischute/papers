@@ -1,11 +1,18 @@
-## 1. Additive Attention
+## 1. Blogpost: Intro. to Attention
+  - **Title:** Attentional Interfaces
+  - **Authors:** Christopher Olah
+  - **Year:** 2016
+  - **Link:** https://distill.pub/2016/augmented-rnns/#attentional-interfaces
+  - **Intro Paragraph:** When I’m translating a sentence, I pay special attention to the word I’m presently translating. When I’m transcribing an audio recording, I listen carefully to the segment I’m actively writing down. And if you ask me to describe the room I’m sitting in, I’ll glance around at the objects I’m describing as I do so. Neural networks can achieve this same behavior using attention, focusing on part of a subset of the information they’re given. For example, an RNN can attend over the output of another RNN. At every time step, it focuses on different positions in the other RNN.
+
+## 2. Additive Attention
   - **Title:** Neural Machine Translation by Jointly Learning to Align and Translate
   - **Authors:** Dzmitry Bahdanau, Kyunghyun Cho, Yoshua Bengio
   - **Year:** 2014
   - **Link:** http://arxiv.org/abs/1409.0473v7
   - **Abstract:** Neural machine translation is a recently proposed approach to machine translation. Unlike the traditional statistical machine translation, the neural machine translation aims at building a single neural network that can be jointly tuned to maximize the translation performance. The models proposed recently for neural machine translation often belong to a family of encoder-decoders and consists of an encoder that encodes a source sentence into a fixed-length vector from which a decoder generates a translation. In this paper, we conjecture that the use of a fixed-length vector is a bottleneck in improving the performance of this basic encoder-decoder architecture, and propose to extend this by allowing a model to automatically (soft-)search for parts of a source sentence that are relevant to predicting a target word, without having to form these parts as a hard segment explicitly. With this new approach, we achieve a translation performance comparable to the existing state-of-the-art phrase-based system on the task of English-to-French translation. Furthermore, qualitative analysis reveals that the (soft-)alignments found by the model agree well with our intuition.
 
-## 2. Show, Attend, and Tell
+## 3. Show, Attend, and Tell
   - **Title:** Show, Attend and Tell: Neural Image Caption Generation with Visual
   Attention
   - **Authors:** Kelvin Xu, Jimmy Ba, Ryan Kiros, Kyunghyun Cho, Aaron Courville, Ruslan Salakhutdinov, Richard Zemel, Yoshua Bengio
@@ -13,14 +20,14 @@
   - **Link:** http://arxiv.org/abs/1502.03044v3
   - **Abstract:** Inspired by recent work in machine translation and object detection, we introduce an attention based model that automatically learns to describe the content of images. We describe how we can train this model in a deterministic manner using standard backpropagation techniques and stochastically by maximizing a variational lower bound. We also show through visualization how the model is able to automatically learn to fix its gaze on salient objects while generating the corresponding words in the output sequence. We validate the use of attention with state-of-the-art performance on three benchmark datasets: Flickr8k, Flickr30k and MS COCO.
 
-## 3. Multiplicative Attention
+## 4. Multiplicative Attention
   - **Title:** Effective Approaches to Attention-based Neural Machine Translation
   - **Authors:** Minh-Thang Luong, Hieu Pham, Christopher D. Manning
   - **Year:** 2015
   - **Link:** http://arxiv.org/abs/1508.04025v5
   - **Abstract:** An attentional mechanism has lately been used to improve neural machine translation (NMT) by selectively focusing on parts of the source sentence during translation. However, there has been little work exploring useful architectures for attention-based NMT. This paper examines two simple and effective classes of attentional mechanism: a global approach which always attends to all source words and a local one that only looks at a subset of source words at a time. We demonstrate the effectiveness of both approaches over the WMT translation tasks between English and German in both directions. With local attention, we achieve a significant gain of 5.0 BLEU points over non-attentional systems which already incorporate known techniques such as dropout. Our ensemble model using different attention architectures has established a new state-of-the-art result in the WMT'15 English to German translation task with 25.9 BLEU points, an improvement of 1.0 BLEU points over the existing best system backed by NMT and an n-gram reranker.
 
-## 4. Self-Attention: The Transformer
+## 5. Self-Attention: The Transformer
   - **Title:** Attention Is All You Need
   - **Authors:** Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin
   - **Year:** 2017
